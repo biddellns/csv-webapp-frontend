@@ -7,13 +7,17 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { UploadCsvComponent } from './upload-csv/upload-csv.component';
+import { DocumentListComponent } from './document-list/document-list.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    NavigationComponent
+    NavigationComponent,
+    UploadCsvComponent,
+    DocumentListComponent
   ],
   imports: [
     BrowserModule,
