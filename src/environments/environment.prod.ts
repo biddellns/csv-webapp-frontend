@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  apiUrl: "http://nicbiddell.com/api",
+  apiUrl: "https://nicbiddell.com/api",
   csvEndpoint: "/csv-demo"
 };
