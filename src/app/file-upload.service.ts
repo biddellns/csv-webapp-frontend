@@ -7,7 +7,7 @@ export class FileUploadService {
 
   constructor(private http: HttpClient) { }
 
-  uploadFile(url: string, file: File): Observable<HttpEvent<any>> {
+  uploadFile(url: string, file: File): Observable<Object> {
     let formData = new FormData();
     
     let params = new HttpParams();
@@ -16,12 +16,12 @@ export class FileUploadService {
 
     const options = {
       params: params,
-      reportProgress: true,
+      reportProgress: false,
     };
 
     const req = new HttpRequest('POST', url, formData, options);
 
-    return this.http.request(req);
+    return this.http.post(url, formData);
   }
 
 }
