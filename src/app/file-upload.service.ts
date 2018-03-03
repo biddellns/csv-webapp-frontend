@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams, HttpRequest, HttpEvent } from '@angular/common/http';
+import { HttpClient, HttpHeaders,HttpRequest, HttpEvent } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable()
@@ -9,19 +9,15 @@ export class FileUploadService {
 
   uploadFile(url: string, file: File): Observable<Object> {
     let formData = new FormData();
-    
-    let params = new HttpParams();
-
     formData.append('upload', file);
+    
+    let headers = new HttpHeaders();
+    headers.append('Content-Type', 'text/csv');
 
     const options = {
-      params: params,
-      reportProgress: false,
+      headers: headers,
     };
 
-    const req = new HttpRequest('POST', url, formData, options);
-
-    return this.http.post(url, formData);
+    return this.http.post(url, formData, options);
   }
-
 }
