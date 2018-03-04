@@ -13,7 +13,7 @@ export class FileUploadService {
     
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'text/csv');
-
+    headers.append('Content-Disposition', file.name);
     const options = {
       headers: headers,
     };
