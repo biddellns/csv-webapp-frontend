@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -27,6 +28,7 @@ import { FileUploadService } from './file-upload.service';
   imports: [
     BrowserModule,
     NgbModule.forRoot(),
+    FormsModule,
     HttpClientModule,
     AppRoutingModule
   ],

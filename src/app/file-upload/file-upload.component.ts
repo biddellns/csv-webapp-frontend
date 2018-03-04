@@ -11,29 +11,45 @@ import { Url } from 'url';
 })
 export class FileUploadComponent implements OnInit {
   csvUploadUrl: string = environment.apiUrl + environment.csvEndpoint;
+  uploadTried: boolean;
+  uploadSucceeded: boolean;
+  currentFile: File;
 
   constructor(private upload: FileUploadService) { }
 
   ngOnInit() {
+    this.uploadTried = false;
+    this.currentFile = null;    
   }
 
-  selectFile(event) {
-    this.uploadFile(event.target.files);
-  }
-
-  uploadFile(files: FileList) {
+  selectFile(event): void {
+    const files: File[] = event.target.files;
     if (files.length == 0) {
       return;
     }
 
-    let file = files[0];
+    this.currentFile = files[0];
+  }
+
+  onSubmit(): void {
+    this.uploadFile(this.currentFile);
+  }
+
+  uploadFile(file: File): void {
+    if (file === null || file === undefined) {
+      return;
+    }
+
+    this.uploadTried = true;
 
     this.upload.uploadFile(this.csvUploadUrl, file)
       .subscribe(
         data => {
+          this.uploadSucceeded = true;
           console.log("File uploaded!");
         },
         (err: Error) => {
+          this.uploadSucceeded = false;
           console.log("Failed upload");
         }
       )
