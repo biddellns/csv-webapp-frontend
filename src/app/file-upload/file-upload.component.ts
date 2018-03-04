@@ -10,7 +10,7 @@ import { Url } from 'url';
   styleUrls: ['./file-upload.component.css']
 })
 export class FileUploadComponent implements OnInit {
-  csvUploadUrl: string = environment.apiUrl + environment.csvEndpoint;
+	csvUploadUrl: string = environment.apiUrl + '/wtf/csv-test';
   uploadTried: boolean;
   uploadSucceeded: boolean;
   currentFile: File;
