@@ -18,6 +18,6 @@ export class FileUploadService {
       headers: headers,
     };
 
-    return this.http.post(url, formData, options);
+    return this.http.put(url, formData, options);
   }
 }
