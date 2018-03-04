@@ -1,3 +1,5 @@
-<p>
-  document-list works!
-</p>
+<div class="container">
+  <div *ngFor="let document of documents$ | async"  class="row">
+   <div print stuff></div> 
+  </div>
+</div>

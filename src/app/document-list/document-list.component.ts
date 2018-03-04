@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
+import { Document } from '../document.model';
+import { FileUploadService } from '../file-upload.service';
 @Component({
   selector: 'app-document-list',
   templateUrl: './document-list.component.html',
@@ -7,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DocumentListComponent implements OnInit {
 
-  constructor() { }
+  documents$; 
+
+  constructor(private upload: FileUploadService) { }
 
   ngOnInit() {
+    this.documents$ = this.upload.getUploadedFiles;
   }
 
 }

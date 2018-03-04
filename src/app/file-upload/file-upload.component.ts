@@ -10,7 +10,6 @@ import { Url } from 'url';
   styleUrls: ['./file-upload.component.css']
 })
 export class FileUploadComponent implements OnInit {
-	csvUploadUrl: string = environment.apiUrl + environment.newCsvEndpoint;
   uploadTried: boolean;
   uploadSucceeded: boolean;
   currentFile: File;
@@ -42,15 +41,15 @@ export class FileUploadComponent implements OnInit {
 
     this.uploadTried = true;
 
-    this.upload.uploadFile(this.csvUploadUrl, file)
+    this.upload.uploadFile(file)
       .subscribe(
         data => {
           this.uploadSucceeded = true;
-          console.log("File uploaded!");
+          this.uploadTried = true;
         },
         (err: Error) => {
           this.uploadSucceeded = false;
-          console.log("Failed upload");
+          this.uploadTried = true;
         }
       )
   }
