@@ -1,4 +1,5 @@
 FROM node:9-alpine as builder
+ARG APP_ENV
 
 RUN mkdir /app
 
@@ -12,7 +13,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN $(npm bin)/ng build --prod 
+RUN $(npm bin)/ng build $APP_ENV 
 
 FROM nginx:1.13-alpine
 
