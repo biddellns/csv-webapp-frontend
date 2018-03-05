@@ -16,7 +16,7 @@ export class DocumentListComponent implements OnInit {
 
   ngOnInit() {
     console.log('Call to upload files');
-    this.documents$ = this.upload.getUploadedFiles;
+    this.documents$ = this.upload.getUploadedFiles();
     console.log(this.documents$)
   }
 
