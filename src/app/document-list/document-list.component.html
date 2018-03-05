@@ -1,5 +1,5 @@
 <div class="container">
   <div *ngFor="let document of documents$ | async"  class="row">
-   <div print stuff></div> 
+   <div class="col-sm-10">{{document.upload_date}}</div> 
   </div>
 </div>
