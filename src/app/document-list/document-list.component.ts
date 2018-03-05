@@ -10,7 +10,7 @@ import { FileUploadService } from '../file-upload.service';
 })
 export class DocumentListComponent implements OnInit {
 
-  documents$; 
+  documents$: Observable<Document[]>; 
 
   constructor(private upload: FileUploadService) { }
 

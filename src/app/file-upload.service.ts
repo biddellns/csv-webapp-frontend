@@ -26,7 +26,7 @@ export class FileUploadService {
     return this.http.put(url, formData, options);
   }
 
-  getUploadedFiles(){
+  getUploadedFiles(): Observable<Document[]> {
     let url = environment.apiUrl + environment.csvEndpoint;
     return this.http.get<Document[]>(url)
 
