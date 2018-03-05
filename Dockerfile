@@ -13,7 +13,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN $(npm bin)/ng build $APP_ENV 
+RUN $(npm bin)/ng build --$APP_ENV 
 
 FROM nginx:1.13-alpine
 
