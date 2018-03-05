@@ -1,4 +1,5 @@
 export class Document {
-    filename: string;
+    pk: number;
+    document: File
     uploadDate: string;
 }
