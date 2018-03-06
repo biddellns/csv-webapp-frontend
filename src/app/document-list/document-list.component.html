@@ -7,10 +7,15 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let document of documents$ | async">
+      <tr *ngFor="let document of documents$ | async"
+        [class.selected]="document === selectedDocument"
+        (click)="onSelect(document)"
+        >
         <td>{{document.document}}</td> 
         <td>{{document.upload_date}}</td>
       </tr>
     </tbody>
   </table>
+
+  <app-document-detail [document]="selectedDocument"></app-document-detail>
 </div>

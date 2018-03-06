@@ -6,10 +6,9 @@ import { UploadCsvComponent } from './upload-csv/upload-csv.component';
 import { DocumentListComponent } from './document-list/document-list.component';
 
 const routes: Routes = [
-  { path: 'dashboard', component: DashboardComponent},
   { path: 'upload', component: UploadCsvComponent },
   { path: 'doc-list', component: DocumentListComponent },
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full'}
+  { path: '', redirectTo: '/upload', pathMatch: 'full'}
 ];
 
 @NgModule({

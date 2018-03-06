@@ -14,6 +14,8 @@ import { DocumentListComponent } from './document-list/document-list.component';
 import { FileUploadComponent } from './file-upload/file-upload.component';
 
 import { FileUploadService } from './file-upload.service';
+import { DocumentService } from './document.service';
+import { DocumentDetailComponent } from './document-detail/document-detail.component';
 
 
 @NgModule({
@@ -23,7 +25,8 @@ import { FileUploadService } from './file-upload.service';
     NavigationComponent,
     UploadCsvComponent,
     DocumentListComponent,
-    FileUploadComponent
+    FileUploadComponent,
+    DocumentDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +37,7 @@ import { FileUploadService } from './file-upload.service';
   ],
   providers: [
     FileUploadService,
+    DocumentService
   ],
   bootstrap: [AppComponent]
 })

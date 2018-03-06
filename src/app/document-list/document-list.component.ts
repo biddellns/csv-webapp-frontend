@@ -12,12 +12,16 @@ export class DocumentListComponent implements OnInit {
 
   documents$: Observable<Document[]>; 
 
+  selectedDocument: Document
+
   constructor(private upload: FileUploadService) { }
 
   ngOnInit() {
-    console.log('Call to upload files');
     this.documents$ = this.upload.getUploadedFiles();
-    console.log(this.documents$)
+  }
+
+  onSelect(document: Document): void {
+    this.selectedDocument = document;
   }
 
 }
