@@ -12,7 +12,7 @@ export class DocumentDetailComponent implements OnChanges {
 
   @Input()
   document: Document
-  data: Object[];
+  data;
   headers: string[];
 
   constructor(private docService: DocumentService) { }
@@ -24,14 +24,14 @@ export class DocumentDetailComponent implements OnChanges {
   getDataForDocument(): void {
     this.docService.getDocumentDetail(this.document.pk)
         .subscribe(
-          data => { 
-            this.data = data;
-            console.log(this.data.keys()) }
+          res => { 
+            this.data = JSON.stringify(res);
+           }
         );
   }
   
   getHeaders(): void {
-
+      this.headers = this.data[0];
   }
 
 }
