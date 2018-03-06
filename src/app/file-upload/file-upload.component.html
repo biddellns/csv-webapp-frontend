@@ -1,19 +1,16 @@
-<div class="Container">
+<div class="container">
     <div class="row">
         <h2>Upload a file!</h2>
     </div>
     <form (ngSubmit)="onSubmit()" #uploadForm="ngForm">
-    <div class="form-group>">
-        <div class="col-sm-2 col-xs-12">
+        <div class="form-group>">
             <label for="file">File: </label>
+            <input type="file" class="form-control-file" (change)="selectFile($event)" accept=".csv" name="file" required/>
         </div>
-        <div class="col-sm-8 col-xs-12">
-            <input type="file" class="form-control" (change)="selectFile($event)" accept=".csv" name="file" required/>
+
+        <div class="form-group">
+        <button type="submit" class="btn btn-success col-auto">Upload</button>
         </div>
-    </div>
-    
-    <button type="submit" class="btn btn-success">Upload</button>
-    
     </form>
     <div *ngIf="uploadTried" class="row">
         Upload {{ uploadSucceeded ? 'Succeeded' : 'Failed' }}
