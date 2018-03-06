@@ -13,18 +13,13 @@ export class FileUploadService {
   constructor(private http: HttpClient) { }
 
   uploadFile(file: File): Observable<Object> {
-    let url = environment.apiUrl + Endpoints.newCsvEndpoint;
+    let url = environment.apiUrl + Endpoints.csvEndpoint;
+
     let formData = new FormData();
     formData.append('upload', file);
     
-    let headers = new HttpHeaders();
-    headers.append('Content-Type', 'text/csv');
-    headers.append('Content-Disposition', file.name);
-    const options = {
-      headers: headers,
-    };
 
-    return this.http.put(url, formData, options);
+    return this.http.post(url, formData);
   }
 
   getUploadedFiles(): Observable<Document[]> {
