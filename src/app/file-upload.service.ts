@@ -7,24 +7,24 @@ import { environment } from '../environments/environment';
 import { Endpoints } from './endpoints';
 import { Document } from './document.model';
 import { mapTo } from 'rxjs/operator/mapTo';
+import { Url } from 'url';
 @Injectable()
 export class FileUploadService {
+
+  endpointUrl: string = environment.apiUrl + Endpoints.csvEndpoint;
 
   constructor(private http: HttpClient) { }
 
   uploadFile(file: File): Observable<Object> {
-    let url = environment.apiUrl + Endpoints.csvEndpoint;
 
     let formData = new FormData();
     formData.append('upload', file);
     
 
-    return this.http.post(url, formData);
+    return this.http.post(this.endpointUrl, formData);
   }
 
   getUploadedFiles(): Observable<Document[]> {
-    let url = environment.apiUrl + Endpoints.csvEndpoint;
-    return this.http.get<Document[]>(url)
-
+    return this.http.get<Document[]>(this.endpointUrl)
   }
 }
