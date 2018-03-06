@@ -6,6 +6,4 @@
 export const environment = {
   production: false,
   apiUrl: "https://localhost/api",
-  csvEndpoint: "/csv-uploads/",
-  newCsvEndpoint: "/csv-upload/"
 };

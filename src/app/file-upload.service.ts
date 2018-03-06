@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { environment } from '../environments/environment'; 
+import { Endpoints } from './endpoints';
 import { Document } from './document.model';
 import { mapTo } from 'rxjs/operator/mapTo';
 @Injectable()
@@ -12,7 +13,7 @@ export class FileUploadService {
   constructor(private http: HttpClient) { }
 
   uploadFile(file: File): Observable<Object> {
-    let url = environment.apiUrl + environment.newCsvEndpoint;
+    let url = environment.apiUrl + Endpoints.newCsvEndpoint;
     let formData = new FormData();
     formData.append('upload', file);
     
@@ -27,7 +28,7 @@ export class FileUploadService {
   }
 
   getUploadedFiles(): Observable<Document[]> {
-    let url = environment.apiUrl + environment.csvEndpoint;
+    let url = environment.apiUrl + Endpoints.csvEndpoint;
     return this.http.get<Document[]>(url)
 
   }
