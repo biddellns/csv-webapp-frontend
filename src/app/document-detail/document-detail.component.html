@@ -1,8 +1,17 @@
 <div *ngIf="document">
-  <h2>{{document.document}}</h2>
 
+  <h2>{{document.document}}</h2>
   
-  <div *ngIf="data">
-         <div>{{data}}</div>
-  </div>
+  <table class="table" *ngIf="data$">
+    <thead>
+      <tr>
+        <td *ngFor="let header of headers">{{header}}</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let obj of data$">
+        <td *ngFor="let field of obj">{{ field }}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
