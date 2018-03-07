@@ -1,17 +1,18 @@
 <div *ngIf="document">
+  <div class="container">
+    <h2>{{document.document}}</h2>
 
-  <h2>{{document.document}}</h2>
-  
-  <table class="table" *ngIf="data$">
-    <thead>
-      <tr>
-        <td *ngFor="let header of headers">{{header}}</td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let obj of data$">
-        <td *ngFor="let field of obj">{{ field }}</td>
-      </tr>
-    </tbody>
-  </table>
+    <table class="table table-responsive" *ngIf="data$">
+      <thead>
+        <tr>
+          <th *ngFor="let header of headers">{{header}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let obj of data$">
+          <td *ngFor="let field of obj">{{ field }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
